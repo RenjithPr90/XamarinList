@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Demo"
+          xmlns:uwp="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime;targetPlatform=Windows"
              x:Class="Demo.MainPage">
-    <StackLayout Padding="20">
-        <ListView x:Name="List111"
+    <StackLayout x:Name="stackk" Padding="20">
+        <!--<ListView x:Name="List111"
                IsGroupingEnabled="true" 
                   GroupDisplayBinding="{Binding Name}" 
                   GroupShortNameBinding="{Binding Name}">
@@ -29,6 +30,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </StackLayout>
 </ContentPage>

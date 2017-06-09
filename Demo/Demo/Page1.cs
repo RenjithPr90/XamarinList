@@ -218,55 +218,61 @@ namespace Demo
                     new Employee { EmployeeName = "Philip" },
                     new Employee { EmployeeName = "John" },
                     new Employee { EmployeeName = "David"  } } }};
-            var groupedList = from model in list1
-                              group model by new { model.CompanyName, model.Id, model.Employees } into wordCollection
-                              orderby wordCollection.Key.CompanyName
-                              select new GroupViewModel<Employee>(wordCollection.Key.CompanyName, wordCollection.Key.Id, wordCollection.Key.Employees);
+            //var groupedList = from model in list1
+            //                  group model by new { model.CompanyName, model.Id, model.Employees } into wordCollection
+            //                  orderby wordCollection.Key.CompanyName
+            //                  select new GroupViewModel<Employee>(wordCollection.Key.CompanyName, wordCollection.Key.Id, wordCollection.Key.Employees);
 
             var list = new ListView();
-            list.ItemsSource = groupedList;
-            list.IsGroupingEnabled = true;
-            list.GroupDisplayBinding = new Binding("Name");
-            list.GroupShortNameBinding = new Binding("Name");
-            list.GroupHeaderTemplate = new DataTemplate(() =>
-              {
-                  Label lbl = new Label();
-                  lbl.TextColor = Color.White;
-                  lbl.YAlign = TextAlignment.Center;
-                  lbl.SetBinding(Label.TextProperty, "Name");
-                  Label lbl2 = new Label();
-                  lbl2.TextColor = Color.White;
-                  lbl2.YAlign = TextAlignment.Center;
 
-                  lbl2.SetBinding(Label.TextProperty, "Id");
-                  return new ViewCell
-                  {
-                      View = new StackLayout
-                      {
-                          Children =
-                          {
-                              lbl,lbl2
-                          },
-                          BackgroundColor = Color.FromHex("#0563A8"),
-                          Padding = new Thickness(10)
-                      }
-                  };
-              });
-            list.ItemTemplate = new DataTemplate(() =>
+            var list22 = new List<string>();
+            for(var i=0;i<1000;i++)
             {
-                Label lbl = new Label();
-                lbl.SetBinding(Label.TextProperty, "EmployeeName");
-                return new ViewCell
-                {
-                    View = new StackLayout
-                    {
-                        Children =
-                        {
-                            lbl
-                        }
-                    }
-                };
-            });
+                list22.Add("Item" + i);
+            }
+            list.ItemsSource = list22;
+            //list.IsGroupingEnabled = true;
+            //list.GroupDisplayBinding = new Binding("Name");
+            //list.GroupShortNameBinding = new Binding("Name");
+            //list.GroupHeaderTemplate = new DataTemplate(() =>
+            //  {
+            //      Label lbl = new Label();
+            //      lbl.TextColor = Color.White;
+            //      lbl.YAlign = TextAlignment.Center;
+            //      lbl.SetBinding(Label.TextProperty, "Name");
+            //      Label lbl2 = new Label();
+            //      lbl2.TextColor = Color.White;
+            //      lbl2.YAlign = TextAlignment.Center;
+
+            //      lbl2.SetBinding(Label.TextProperty, "Id");
+            //      return new ViewCell
+            //      {
+            //          View = new StackLayout
+            //          {
+            //              Children =
+            //              {
+            //                  lbl,lbl2
+            //              },
+            //              BackgroundColor = Color.FromHex("#0563A8"),
+            //              Padding = new Thickness(10)
+            //          }
+            //      };
+            //  });
+            //list.ItemTemplate = new DataTemplate(() =>
+            //{
+            //    Label lbl = new Label();
+            //    lbl.SetBinding(Label.TextProperty, "EmployeeName");
+            //    return new ViewCell
+            //    {
+            //        View = new StackLayout
+            //        {
+            //            Children =
+            //            {
+            //                lbl
+            //            }
+            //        }
+            //    };
+            //});
 
             Content = new StackLayout
             {

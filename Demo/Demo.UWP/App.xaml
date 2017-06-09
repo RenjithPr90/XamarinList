@@ -4,5 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Demo.UWP"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ListViewItemTemplate">
+                <Grid Background="Yellow" BorderBrush="Black" Margin="5" Padding="5">
+                    <TextBlock Grid.ColumnSpan="2"  Foreground="Black" FontStyle="Italic" FontSize="22" VerticalAlignment="Top" Text="{Binding Name}" />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
